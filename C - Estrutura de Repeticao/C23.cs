@@ -18,16 +18,16 @@ class C23
 {
     static void Main(string[] args)
     {
-        float sal, kwatts, vKwatts, conta, faturamento;
+        double sal, kwatts, vKwatts, conta, faturamento;
         int tipo, qtdConsumidor;
 
         faturamento = 0;
         qtdConsumidor = 0;
 
         Console.Write("Valor do salário mínimo: ");
-        sal = float.Parse(Console.ReadLine());
+        sal = double.Parse(Console.ReadLine());
         Console.Write("Quantidade de quilowatts gasta no mês: ");
-        kwatts = float.Parse(Console.ReadLine());
+        kwatts = double.Parse(Console.ReadLine());
 
         while (kwatts != 0)
         {
@@ -63,7 +63,7 @@ class C23
             Console.WriteLine($"Valor a ser pago: {conta:C}");
             Console.WriteLine();
             Console.Write("Quantidade de quilowatts gasta no mês: ");
-            kwatts = float.Parse(Console.ReadLine());
+            kwatts = double.Parse(Console.ReadLine());
         }
 
         Console.WriteLine($"Faturamento da empresa: {faturamento:C}");
