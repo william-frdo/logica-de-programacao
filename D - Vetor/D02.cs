@@ -21,7 +21,7 @@ namespace D02
     {
         static void Main(string[] args)
         {
-            // Necessário para entrada de valures com ","
+            // Necessário para entrada de valores com ","
             CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
 
             int posicao = 0, qtdMaisVendido = 0;
