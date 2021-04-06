@@ -15,54 +15,51 @@
 using System;
 using System.Globalization;
 
-namespace D02
+class D02
 {
-    class D02
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // Necessário para entrada de valores com ","
+        CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
+
+        int posicao = 0, qtdMaisVendido = 0;
+        double vGeral = 0, comissao;
+        int[] qtd = new int[10];
+        double[] valor = new double[10];
+
+        for (int i = 0; i < qtd.Length; i++)
         {
-            // Necessário para entrada de valores com ","
-            CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
-
-            int posicao = 0, qtdMaisVendido = 0;
-            double vGeral = 0, comissao;
-            int[] qtd = new int[10];
-            double[] valor = new double[10];
-
-            for (int i = 0; i < qtd.Length; i++)
-            {
-                Console.Write($"Quantidade vendida do {i + 1}º produto: ");
-                qtd[i] = int.Parse(Console.ReadLine());
-                Console.Write($"Valor do {i + 1}º produto: ");
-                valor[i] = double.Parse(Console.ReadLine());
-                Console.WriteLine();
-            }
-
-            for (int i = 0; i < qtd.Length; i++)
-            {
-                if (i == 0)
-                {
-                    posicao = i + 1;
-                    qtdMaisVendido = qtd[i];
-                }
-
-                if (qtd[i] > qtdMaisVendido)
-                {
-                    posicao = i + 1;    
-                    qtdMaisVendido = qtd[i];
-                }
-
-                double soma = qtd[i] * valor[i];
-                vGeral += soma;
-                Console.WriteLine($"Quantidade vendida: {qtd[i]}");
-                Console.WriteLine($"Valor unitário: {valor[i]:C}");
-                Console.WriteLine($"Valor total: {soma:C}");
-            }
-
-            Console.WriteLine($"Valor geral das vendas: {vGeral:C}");
-            comissao = vGeral * 0.05;
-            Console.WriteLine($"Valor da comissão: {comissao:C}");
-            Console.WriteLine($"Quantidade do objeto mais vendido foi {qtdMaisVendido}, na posisao {posicao}");
+            Console.Write($"Quantidade vendida do {i + 1}º produto: ");
+            qtd[i] = int.Parse(Console.ReadLine());
+            Console.Write($"Valor do {i + 1}º produto: ");
+            valor[i] = double.Parse(Console.ReadLine());
+            Console.WriteLine();
         }
+
+        for (int i = 0; i < qtd.Length; i++)
+        {
+            if (i == 0)
+            {
+                posicao = i + 1;
+                qtdMaisVendido = qtd[i];
+            }
+
+            if (qtd[i] > qtdMaisVendido)
+            {
+                posicao = i + 1;    
+                qtdMaisVendido = qtd[i];
+            }
+
+            double totVendas = qtd[i] * valor[i];
+            vGeral += totVendas;
+            Console.WriteLine($"Quantidade vendida: {qtd[i]}");
+            Console.WriteLine($"Valor unitário: {valor[i]:C}");
+            Console.WriteLine($"Valor total: {totVendas:C}");
+        }
+
+        Console.WriteLine($"Valor geral das vendas: {vGeral:C}");
+        comissao = vGeral * 0.05;
+        Console.WriteLine($"Valor da comissão: {comissao:C}");
+        Console.WriteLine($"Quantidade do objeto mais vendido foi {qtdMaisVendido}, na posisao {posicao}");
     }
 }

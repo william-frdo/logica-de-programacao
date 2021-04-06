@@ -39,6 +39,8 @@ public class D02 {
             System.out.println();
         }
 
+        s.close();
+
         for (int i = 0; i < qtd.length; i++) {
             if (i == 0) {
                 posicao = i;
@@ -50,13 +52,13 @@ public class D02 {
                 qtdMaisVendido = qtd[i];
             }
     
-            double soma = qtd[i] * valor[i];
-            vGeral += soma;
+            double totVendas = qtd[i] * valor[i];
+            vGeral += totVendas;
             System.out.printf("Quantidade vendida: %d%n", qtd[i]);
     
             // NumberFormat necessário para exibir valores monetários de acordo com idioma definido
             System.out.printf("Valor unitário: %s%n", NumberFormat.getCurrencyInstance(br).format(valor[i]));
-            System.out.printf("Valor total: %s%n", NumberFormat.getCurrencyInstance(br).format(soma));
+            System.out.printf("Valor total: %s%n", NumberFormat.getCurrencyInstance(br).format(totVendas));
         }
 
         System.out.printf("Valor geral das vendas: %s%n", NumberFormat.getCurrencyInstance(br).format(vGeral));

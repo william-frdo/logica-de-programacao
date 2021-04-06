@@ -4,6 +4,7 @@
 */
 
 import java.security.SecureRandom;
+import java.util.Arrays;
 
 public class D01 {
     public static void main(String[] args) throws Exception {
@@ -16,11 +17,7 @@ public class D01 {
         }
 
         // Exibe o array
-        for (int i : n) {
-            System.out.print("[" + i + "]");
-        }
-
-        System.out.println();
+        System.out.println(Arrays.toString(n));
 
         boolean b = false;
         for (int i = 0; i < n.length; i++) {            
